@@ -1,0 +1,37 @@
+<section class="card">
+  <h2>Search & Filters</h2>
+
+  <form [formGroup]="filterForm()" class="filter-form">
+    <label for="search">Search callsign / flight</label>
+    <input
+      id="search"
+      type="text"
+      formControlName="search"
+      placeholder="e.g. AIC101 or IGO233"
+    />
+
+    <label for="status">Status</label>
+    <select id="status" formControlName="status">
+      <option value="all">All statuses</option>
+      @for (status of statusOptions(); track status) {
+        <option [value]="status">{{ status }}</option>
+      }
+    </select>
+
+    <label for="origin">Origin</label>
+    <select id="origin" formControlName="origin">
+      <option value="all">All origins</option>
+      @for (origin of originOptions(); track origin) {
+        <option [value]="origin">{{ origin }}</option>
+      }
+    </select>
+
+    <label for="destination">Destination</label>
+    <select id="destination" formControlName="destination">
+      <option value="all">All destinations</option>
+      @for (destination of destinationOptions(); track destination) {
+        <option [value]="destination">{{ destination }}</option>
+      }
+    </select>
+  </form>
+</section>

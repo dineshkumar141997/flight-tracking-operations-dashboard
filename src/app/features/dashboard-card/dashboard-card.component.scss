@@ -1,0 +1,30 @@
+.kpi-card {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.kpi-card span {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.kpi-card strong {
+  font-size: 1.55rem;
+}
+
+.kpi-card.active strong {
+  color: #4ade80;
+}
+
+.kpi-card.delayed strong {
+  color: #fbbf24;
+}
+
+.kpi-card.arrived strong {
+  color: #cbd5e1;
+}

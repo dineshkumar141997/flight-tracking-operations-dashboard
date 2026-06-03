@@ -1,0 +1,34 @@
+:host {
+  display: block;
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+}
+
+.card h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+}
+
+.filter-form {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.filter-form label {
+  font-size: 0.8rem;
+  color: #93c5fd;
+}
+
+.filter-form input,
+.filter-form select {
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  background: #0f172a;
+  color: #dbeafe;
+  padding: 0.5rem;
+}

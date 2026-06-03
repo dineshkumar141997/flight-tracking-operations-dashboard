@@ -1,0 +1,21 @@
+<section class="card">
+  <h2>Flights ({{ flights().length }})</h2>
+  <div class="flight-list" role="list">
+    @for (flight of flights(); track flight.id) {
+      <button
+        type="button"
+        class="flight-item"
+        [class.selected]="selectedFlightId() === flight.id"
+        (click)="onSelect(flight)"
+      >
+        <div>
+          <strong>{{ flight.flightNumber }}</strong>
+          <span>{{ flight.callsign }}</span>
+        </div>
+        <small>{{ flight.origin.code }} -> {{ flight.destination.code }}</small>
+      </button>
+    } @empty {
+      <p class="empty-state">No flights match the current filters.</p>
+    }
+  </div>
+</section>

@@ -1,0 +1,53 @@
+<div class="dashboard-shell">
+  <header class="dashboard-header">
+    <div>
+      <h1>Flight Tracking & Operations Dashboard</h1>
+      <p>Real-time operational view for dispatch and control teams.</p>
+    </div>
+  </header>
+
+  <section class="kpi-grid" aria-label="Operations dashboard KPIs">
+    <app-dashboard-card title="Total Flights" [value]="totalFlights()"></app-dashboard-card>
+    <app-dashboard-card
+      title="Active Flights"
+      [value]="activeFlights()"
+      variant="active"
+    ></app-dashboard-card>
+    <app-dashboard-card
+      title="Delayed Flights"
+      [value]="delayedFlights()"
+      variant="delayed"
+    ></app-dashboard-card>
+    <app-dashboard-card
+      title="Arrived Flights"
+      [value]="arrivedFlights()"
+      variant="arrived"
+    ></app-dashboard-card>
+  </section>
+
+  <section class="main-grid">
+    <div class="map-panel" aria-label="Interactive flight map">
+      <div id="flight-map" class="map-canvas"></div>
+    </div>
+
+    <aside class="side-panel">
+      <app-dashboard-search-and-filters
+        [filterForm]="filterForm"
+        [statusOptions]="statusOptions"
+        [originOptions]="originOptions()"
+        [destinationOptions]="destinationOptions()"
+      ></app-dashboard-search-and-filters>
+
+      <app-dashboard-flight-lists
+        [flights]="filteredFlights()"
+        [selectedFlightId]="selectedFlight()?.id ?? null"
+        (selectFlight)="onSelectFlight($event)"
+      ></app-dashboard-flight-lists>
+
+      <app-dashboard-flight-details
+        [flight]="selectedFlight()"
+        [formatTime]="formatTime"
+      ></app-dashboard-flight-details>
+    </aside>
+  </section>
+</div>

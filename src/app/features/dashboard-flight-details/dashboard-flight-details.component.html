@@ -1,0 +1,23 @@
+<section class="card details-card">
+  <h2>Flight Details</h2>
+  @if (flight(); as selectedFlight) {
+    <dl>
+      <div><dt>Flight Number</dt><dd>{{ selectedFlight.flightNumber }}</dd></div>
+      <div><dt>Callsign</dt><dd>{{ selectedFlight.callsign }}</dd></div>
+      <div><dt>Aircraft Type</dt><dd>{{ selectedFlight.aircraftType }}</dd></div>
+      <div>
+        <dt>Origin</dt>
+        <dd>{{ selectedFlight.origin.code }} - {{ selectedFlight.origin.name }}</dd>
+      </div>
+      <div>
+        <dt>Destination</dt>
+        <dd>{{ selectedFlight.destination.code }} - {{ selectedFlight.destination.name }}</dd>
+      </div>
+      <div><dt>Status</dt><dd>{{ selectedFlight.status }}</dd></div>
+      <div><dt>ETD</dt><dd>{{ formatTime()(selectedFlight.estimatedDeparture) }}</dd></div>
+      <div><dt>ETA</dt><dd>{{ formatTime()(selectedFlight.estimatedArrival) }}</dd></div>
+    </dl>
+  } @else {
+    <p class="empty-state">Select a flight from the map or list to view details.</p>
+  }
+</section>
