@@ -1,59 +1,94 @@
-# FlightOpsDashboard
+# Flight Tracking & Operations Dashboard
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.10.
+A responsive aviation operations dashboard built with Angular and Leaflet for monitoring flights, routes, and operational KPIs.
 
-## Development server
+## Tech Stack
 
-To start a local development server, run:
+- Angular 16+ (project currently uses Angular 21)
+- TypeScript
+- Reactive Forms
+- Angular Routing
+- Services + RxJS
+- Leaflet Maps
+
+## Features Implemented
+
+### 1) Interactive Flight Map
+- Leaflet map with OpenStreetMap tiles
+- 20 mocked flight markers
+- Marker popup includes:
+  - Flight Number
+  - Callsign
+  - Origin
+  - Destination
+  - Status
+
+### 2) Flight Route Visualization
+- Select a flight from marker or side list
+- Draws route polyline between origin and destination
+- Centers map on selected flight
+- Fits map bounds to selected route
+
+### 3) Flight Details Panel
+- Flight Number
+- Callsign
+- Aircraft Type
+- Origin
+- Destination
+- Current Status
+- Estimated Departure Time
+- Estimated Arrival Time
+
+### 4) Operations Dashboard KPIs
+- Total Flights
+- Active Flights
+- Delayed Flights
+- Arrived Flights
+
+### 5) Search & Filters
+- Search by callsign (also supports flight number)
+- Filter by status
+- Filter by origin airport
+- Filter by destination airport
+
+## Project Structure
+
+- `src/app/features/dashboard/` - Main operations dashboard component
+- `src/app/core/models/flight.model.ts` - Flight domain model
+- `src/app/core/data/mock-flights.ts` - Mock flight dataset
+- `src/app/core/services/flight.service.ts` - Flight data service (RxJS based)
+
+## Setup Instructions
 
 ```bash
-ng serve
+npm install
+npm start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open: `http://localhost:4200`
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Build
 
 ```bash
-ng generate component component-name
+npm run build
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Test
 
 ```bash
-ng generate --help
+npm test
 ```
 
-## Building
+## Design Notes (Brief)
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- The map is the visual priority and occupies the largest area in desktop view.
+- Filters, flight list, and details are grouped in a professional right-side operations panel.
+- KPI cards provide quick situational awareness at the top.
+- Color coding improves status scanning:
+  - Green: Active
+  - Amber: Delayed
+  - Gray: Arrived
+- Responsive behavior supports desktop and tablet:
+  - Desktop: map + side panel
+  - Tablet: stacked map and panel sections
+- Accessibility-conscious form labels and clear information hierarchy are used.
